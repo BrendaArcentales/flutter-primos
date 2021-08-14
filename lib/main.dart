@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Numeros Primos',
       theme: ThemeData(
-        // This is the theme of your application.
+        //This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
         // application has a blue toolbar. Then, without quitting the app, try
@@ -21,15 +22,17 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blueGrey,
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(fontSize: 18.0, color: Colors.white),
+        ),
       ),
-      home: MyHomePage(title: 'Numeros Primos'),
+      home: MyHomePage(title: 'Los Números Primos'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -38,38 +41,28 @@ class MyHomePage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _primo = 2;
-  int _divisible = 0;
-
-  void _primNumber() {
-    
-    setState(() {
-      while (_primo <= 100) {
-        for (int i = 1; i <=_primo; i++) {
-          if (_primo%i == 0) {
-            _divisible++;
-          }
-          if (_divisible > 2) {
-            break;
-          }
-          if (_divisible == 2) {
-          _primo;
-        }else{
-          _primo++;
-        }
-        }
-        _primo++;
+  void _primeNumber() {
+    int _count = 0;
+    int _num = new Random().nextInt(100);
+    for (int i = 1; i <= _num; i++) {
+      if (_num % i == 0) {
+        _count++;
       }
-      
-    });
+    }
+    if (_count == 2) {
+      setState(() {
+        _primo = _num;
+      });
+    } else {
+      _primeNumber();
+    }
   }
 
   @override
@@ -107,20 +100,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Los numeros primos son:',
+              'Los Números Primos son:',
             ),
-            Text(
-              '$_primo',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Text('$_primo', style: Theme.of(context).textTheme.headline1),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _primNumber,
-        tooltip: 'Sigueinte número primo',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          onPressed: _primeNumber,
+          tooltip: 'Otro número Primo',
+          child: Icon(Icons.add)),
     );
   }
 }
