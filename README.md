@@ -2,15 +2,10 @@
 
 A new Flutter project.
 
-## Getting Started
+## Funcionamiento
+En la sigueinte imagen se puede apreciar el inicio de esta app, donde el contador empieza en 2 ya que es el primer numero primo. La app cuenta con un titulo en la parte superior y un texto centrado y un botón gracias al cual podemos mostrar otro numero primo al hacerle clic.
+![image](https://user-images.githubusercontent.com/66123679/129434362-bda9a102-51e1-420d-90ac-b8e02f228ba8.png)
+![image](https://user-images.githubusercontent.com/66123679/129434409-bca95288-6bea-4966-8291-c5499d5d90c0.png)
+Para una mejor vista del funcionamiento se ha creado el siguiente video: 
+https://user-images.githubusercontent.com/66123679/129434426-49806c05-3688-4373-bade-50594fa9a6a0.mp4
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
